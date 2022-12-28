@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/file-import',[TaskFileController::class,'importView'])->name('import-view');
+Route::post('/import',[TaskFileController::class,'import'])->name('import');
+Route::get('/export-users',[TaskFileController::class,'exportUsers'])->name('export');
+Route::get('/listing-taskfile',[TaskFileController::class,'listing'])->name('taskfile_listing');
+Route::get('/show-taskfile/{id}',[TaskFileController::class,'show'])->name('taskfile.show');
+
+
